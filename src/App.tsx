@@ -1,40 +1,49 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import QRType from "./utils/utils";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
-import TextForm from '@/components/QRTypeForms/TextForm/TextForm'
-import {QRCodeSVG} from 'qrcode.react';
+import {QRCodeCanvas, QRCodeSVG} from 'qrcode.react';
 import "./App.css";
 import qrCodeLogo from "@/assets/qr-code.svg";
 
+import TextForm from '@/components/QRTypeForms/TextForm/TextForm'
+import URLForm from "@/components/QRTypeForms/URLForm/URLForm";
+import EmailForm from "./components/QRTypeForms/EmailForm/EmailForm";
 // import { Canvg } from "canvg";
 
 function App() {
   const [qrType, setQRType] = useState(QRType.Text);
-  const [QRValue, setQRValue ] = useState("Aguante Linux");
-
+  const [QRValue, setQRValue ] = useState("");
+  const [ resolution, setResolution ] = useState(1024);
   const qrWidthRef = useRef(null);
+  const [imageURL, setImageURL ] = useState("/");
 
   function getQRTypeForm(){
     switch (qrType) {
       case QRType.Text:
         return (<TextForm value={QRValue} setValue={setQRValue}/>);
       case QRType.URL:
-        return (<div>URL</div>);
+        return (<URLForm setValue={setQRValue} />);
       case QRType.Email:
-        return (<div>Email</div>);
+        return (<EmailForm setValue={setQRValue} />);
 
       default:
         return (<div>Text</div>);
     }
   }
 
+  useEffect(()=>{
+    setImageURL( qrCodeToImage() )
+    console.log("URL actualizada");
+  }, [QRValue]);
+
   function calQRCodeSize() : number{
     return qrWidthRef.current ? qrWidthRef.current.offsetWidth : 0;
   }
 
-  function downloadQRCode() {
-    
+  function qrCodeToImage() : string {
+    const qrCanvas = document.getElementById("qrCanvas");
+    return qrCanvas.toDataURL("image/png");
   }
   
   return (
@@ -51,12 +60,15 @@ function App() {
         <div className="qr-form">
           {getQRTypeForm()}
           <div ref={qrWidthRef} className="qrcode-container">
-            <QRCodeSVG value={QRValue} size={calQRCodeSize()} />
-            <button onClick={ downloadQRCode }>Download</button>
+            <QRCodeCanvas value={QRValue} size={calQRCodeSize()}/>
+            <a href={imageURL} download="qrcode.png" className="download-button">Download</a>
           </div>
         </div>
         
       </main>
+
+      {/* This canvas is hidden and is used to generate the image */}
+      <QRCodeCanvas value={QRValue} size={resolution} id="qrCanvas" className="hidden-canvas"/>
     </div>
   );
 }
