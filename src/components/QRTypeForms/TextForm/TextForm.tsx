@@ -1,3 +1,5 @@
+import "./TextForm.css";
+
 interface Props {
   value: string;
   setValue: (value: string) => void;
@@ -5,12 +7,13 @@ interface Props {
 
 function TextForm({ value, setValue }: Props) {
   return (
-    <div className="">
-      <textarea 
-        name="text value" 
-        value={value} 
-        onChange={e => setValue(e.target.value)}
-        />
+    <div className="text-form">
+      <textarea
+        placeholder="Your message here"
+        name="text value"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
     </div>
   );
 }
