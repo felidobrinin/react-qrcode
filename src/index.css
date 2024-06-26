@@ -13,18 +13,20 @@
   --radius: 6px;
   --border-color: rgba(172, 172, 172, 0.212);
   --border-thickness: 2px;
+  --thick-border: 4px;
   --accent: #5393dd;
   --accent-light: #cee5ff;
   --color: rgb(15, 15, 15);
-  --color-light: rgb(75, 75, 75);
+  --color-light: rgb(116, 116, 116);
 }
 
 * {
   box-sizing: border-box;
-  /* outline: 1px solid red; */
+
 }
 
 body {
   margin: 0;
   padding: 0;
+  position: relative;
 }
