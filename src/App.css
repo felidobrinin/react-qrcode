@@ -1,17 +1,16 @@
-#root{
-  padding-top: 2rem;
-
-  @media (width <= 600px) {
-    padding-top: 1rem;
-  }
-}
-
 .app {
-  margin-top: 1rem;
-  background-color: rgb(255, 255, 255);
-  padding: 1.5rem;
-  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
   margin: auto;
+  margin-top: 1rem;
+
+  background-color: rgb(255, 255, 255);
+  color: var(--color);
+
+  padding: 1.5rem;
+  border-radius: var(--radius);
   width: min(95%, 1000px);
   
   border: 1px solid rgba(116, 116, 116, 0.138);
@@ -19,8 +18,8 @@
   @media (width <= 600px) {
     padding: 0.5rem
   }
-
   /* Estaria bueno agregar un media query para pantallas grandes */
+
 }
 
 header{
@@ -37,6 +36,8 @@ header{
 
 .title{
   margin: 0;
+
+  font-weight: 800;
   & span {
     display: block;
     text-align: start;
