@@ -8,4 +8,8 @@
       font-size: large;
     }
 
+    & .form-input{
+      grid-template-columns: min-content auto;
+    }
+
 }

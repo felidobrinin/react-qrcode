@@ -75,6 +75,19 @@ main {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 2rem;
+
+  @media (width <= 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    &:has(.text-form){
+      grid-template-rows: 1fr 2fr;
+    }
+
+    &:has(.email-form){
+      grid-template-rows: 3fr 2fr;
+    }
+  }
 }
 
 .qrcode-container {
@@ -83,6 +96,7 @@ main {
   gap: 1rem;
 
   & canvas {
+    margin: auto;
     border-radius: var(--radius);
   }
 }
@@ -208,18 +222,13 @@ textarea {
       outline-offset: 2px;      
     }
   }
-
-  /* &:focus-within {
-    outline-color: var(--accent-light);
-    outline-offset: 2px;
-  } */
 }
 
 
 select {
   background-color: transparent;
   border: none;
-
+  outline: none;
 
   & option {
     padding: 0.5rem;
