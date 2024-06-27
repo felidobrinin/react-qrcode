@@ -14,8 +14,10 @@
   flex-direction: column;
 
   height: 100%;
-
+  outline: var(--thick-border) solid transparent;
   font-size: larger;
+  border-radius: var(--radius);
+  transition: all 100ms linear;
   & > * {
     margin: 0;
   }
@@ -26,10 +28,26 @@
     display: block;
 
     border-radius: var(--radius) var(--radius) 0 0;
+
+    transition: all 100ms linear;
   }
 
   & textarea {
     border-radius: 0 0 var(--radius) var(--radius);
     height: 100%;
+    outline: none;
+
+  }
+
+  
+  &:focus-within {
+    outline-color: var(--accent-light);
+    outline-offset: 2px;
+
+    & label {
+      background-color: var(--accent-light);
+      font-weight: bold;
+      color: var(--color);
+    }
   }
 }

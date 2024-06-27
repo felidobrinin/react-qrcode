@@ -7,26 +7,29 @@ interface Props {
 }
 
 function URLForm({ setValue }: Props) {
-  const [ text, setText ] = useState("");
+  const [text, setText] = useState("");
   function handleChange(text: string) {
     let url = text;
     setText(url);
 
-    if (!url.startsWith('http://') || !url.startsWith('http://'))
+    if (!url.startsWith("http://") || !url.startsWith("http://"))
       url = `https://${url}`;
-    
-    setValue(url);    
+
+    setValue(url);
   }
 
   return (
     <div className="url-form">
-      <span>https://</span>
-      <input
-        placeholder="wikipedia.com"
-        type="text"
-        value={text}
-        onChange={(e) => handleChange(e.target.value)}
-      />
+      <div className="form-input">
+        <label htmlFor="url">https://</label>
+        <input
+          placeholder="wikipedia.com"
+          type="text"
+          value={text}
+          id="url"
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </div>
     </div>
   );
 }

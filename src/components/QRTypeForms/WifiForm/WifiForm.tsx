@@ -42,6 +42,7 @@ function WifiForm({ setValue }: Props) {
         />
       </div>
 
+      {/* Deberia hacer un componente custom la verdad */}
       <div className="form-input">
         <label htmlFor="auth">Security</label>
         <select value={auth} onChange={(e) => setAuth(e.target.value)} id="auth">
@@ -51,6 +52,7 @@ function WifiForm({ setValue }: Props) {
         </select>
       </div>
 
+      {/* Deberia hacer un componente custom la verdad */}
       <div className="form-checkbox">
         <label htmlFor="hidden">Hidden</label>
         <input

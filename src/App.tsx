@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 
 import QRType from "./utils/utils";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
-import {QRCodeCanvas, QRCodeSVG} from 'qrcode.react';
+import {QRCodeCanvas} from 'qrcode.react';
 import "./App.css";
 import qrCodeLogo from "@/assets/qr-code.svg";
 
@@ -15,6 +15,7 @@ import WifiForm from "./components/QRTypeForms/WifiForm/WifiForm";
 function App() {
   const [qrType, setQRType] = useState(QRType.Text);
   const [QRValue, setQRValue ] = useState("");
+  // @ts-ignore
   const [ resolution, setResolution ] = useState(1024);
   const qrWidthRef = useRef(null);
   const [imageURL, setImageURL ] = useState("/");
@@ -46,11 +47,13 @@ function App() {
   }, [QRValue]);
 
   function calQRCodeSize() : number{
+  // @ts-ignore
     return qrWidthRef.current ? qrWidthRef.current.offsetWidth : 0;
   }
 
   function qrCodeToImage() : string {
     const qrCanvas = document.getElementById("qrCanvas");
+    // @ts-ignore
     return qrCanvas.toDataURL("image/png");
   }
   

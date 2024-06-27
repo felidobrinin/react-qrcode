@@ -166,6 +166,12 @@ textarea {
   &:focus-within {
     outline-color: var(--accent-light);
     outline-offset: 2px;
+
+    & label {
+      background-color: var(--accent-light);
+      font-weight: bold;
+      color: var(--color);
+    }
   }
 }
 
@@ -207,4 +213,15 @@ textarea {
     outline-color: var(--accent-light);
     outline-offset: 2px;
   } */
+}
+
+
+select {
+  background-color: transparent;
+  border: none;
+
+
+  & option {
+    padding: 0.5rem;
+  }
 }

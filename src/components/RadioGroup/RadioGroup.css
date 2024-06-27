@@ -12,6 +12,7 @@
   border: var(--border-thickness) solid var(--border-color);
   border-radius: var(--radius);
   transition: all 100ms linear;
+  outline: var(--thick-border) solid transparent;
 
   display: grid;
   & > * {
@@ -25,11 +26,11 @@
     padding: 1rem;
     height: 100%;
     width: 100%;
-    
+
     color: var(--color-light);
     font-weight: normal;
     z-index: 10;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
@@ -41,7 +42,7 @@
     border: none;
     inline-size: 100%;
     block-size: 100%;
-    
+
     z-index: 0;
     outline: none;
   }
@@ -56,8 +57,8 @@
     }
   }
 
-  &:has(input:focus) {
-    outline: 2px solid var(--accent-light);
+  &:has(input:focus, :hover) {
+    outline: var(--thick-border) solid var(--accent-light);
     outline-offset: 2px;
   }
 
