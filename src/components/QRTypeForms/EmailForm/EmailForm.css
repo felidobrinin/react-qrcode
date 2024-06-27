@@ -1,62 +1,35 @@
 .email-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    
-    & label {
-        color: var(--color-light);
-        font-size: large;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  & label {
+    color: var(--color-light);
+    font-size: large;
+  }
 }
 
+.email-textarea {
+  display: flex;
+  flex-direction: column;
 
-.email-input{
-    display: grid;
-    grid-template-columns: 20% auto;
+  height: 100%;
 
-    height: min-content;
-    border-radius: var(--radius);
-
+  font-size: larger;
+  & > * {
+    margin: 0;
+  }
+  & label {
     border: var(--border-thickness) solid var(--border-color);
-    outline: var(--thick-border) solid transparent;
-    transition: all 100ms linear;
-    
-    & > * {
-        padding: 0.5rem;
-    }
-    & label {
-        border-right: var(--border-thickness) solid var(--border-color);
-    }
+    border-bottom: none;
+    padding: 0.5rem;
+    display: block;
 
-    & input {
-        border: none;
-        font-size: large;
-        width: 100%;
-        border: none;
-        outline: none;
-    }
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
 
-    &:focus-within {
-    outline-color: var(--accent-light);
-    outline-offset: 2px;
-    }
-}
-
-.email-textarea{
-    font-size: larger;
-    & > * {
-        margin: 0;
-    }
-    & label {
-        border: var(--border-thickness) solid var(--border-color);
-        border-bottom: none;
-        padding: 0.5rem;
-        display: block;
-        
-        border-radius: var(--radius) var(--radius) 0 0;
-    }
-
-    & textarea{
-        border-radius: 0 0 var(--radius) var(--radius);
-    }
+  & textarea {
+    border-radius: 0 0 var(--radius) var(--radius);
+    height: 100%;
+  }
 }

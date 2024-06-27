@@ -1,6 +1,6 @@
 .radio-group {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 
   @media (width <= 600px) {
@@ -60,4 +60,9 @@
     outline: 2px solid var(--accent-light);
     outline-offset: 2px;
   }
+
+  /* Mientras tenga 4 elementos esto sirve */
+  /* &.WiFi{
+    grid-column: 1/4;
+  } */
 }

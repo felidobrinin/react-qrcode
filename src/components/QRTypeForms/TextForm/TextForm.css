@@ -1,3 +1,7 @@
-.text-form{
-    font-size: larger;
+.text-form {
+  font-size: larger;
+
+  & textarea {
+    height: 100%;
+  }
 }

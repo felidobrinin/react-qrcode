@@ -9,6 +9,7 @@ import qrCodeLogo from "@/assets/qr-code.svg";
 import TextForm from '@/components/QRTypeForms/TextForm/TextForm'
 import URLForm from "@/components/QRTypeForms/URLForm/URLForm";
 import EmailForm from "./components/QRTypeForms/EmailForm/EmailForm";
+import WifiForm from "./components/QRTypeForms/WifiForm/WifiForm";
 // import { Canvg } from "canvg";
 
 function App() {
@@ -18,6 +19,12 @@ function App() {
   const qrWidthRef = useRef(null);
   const [imageURL, setImageURL ] = useState("/");
 
+  function changeQRType(type : QRType){
+    if (type !== qrType)
+      setQRValue("");
+    setQRType(type);
+  }
+  
   function getQRTypeForm(){
     switch (qrType) {
       case QRType.Text:
@@ -26,9 +33,10 @@ function App() {
         return (<URLForm setValue={setQRValue} />);
       case QRType.Email:
         return (<EmailForm setValue={setQRValue} />);
-
+      case QRType.WiFi:
+        return (<WifiForm setValue={setQRValue}/>)
       default:
-        return (<div>Text</div>);
+        return (<div>I messed up</div>);
     }
   }
 
@@ -56,7 +64,7 @@ function App() {
       </header>
 
       <main>
-        <RadioGroup qrType={qrType} setQRType={setQRType}/>
+        <RadioGroup qrType={qrType} setQRType={changeQRType}/>
         <div className="qr-form">
           {getQRTypeForm()}
           <div ref={qrWidthRef} className="qrcode-container">

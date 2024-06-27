@@ -7,6 +7,7 @@ interface RadioGroupProps {
 }
 
 function RadioGroup({ qrType, setQRType }: RadioGroupProps) {
+
   return (
     <div className="radio-group">
       <QRTypeRadio
@@ -30,6 +31,13 @@ function RadioGroup({ qrType, setQRType }: RadioGroupProps) {
         selectedValue={qrType}
         setQRType={setQRType}
       />
+      <QRTypeRadio
+        text="WiFi"
+        id="wifi"
+        type={QRType.WiFi}
+        selectedValue={qrType}
+        setQRType={setQRType}
+      />
     </div>
   );
 }
@@ -50,7 +58,7 @@ function QRTypeRadio({
   setQRType,
 }: QRTypeProps) {
   return (
-    <div className="radio-item">
+    <div className={`radio-item ${text}`}>
       <label htmlFor={id}>
         {text}
       </label>

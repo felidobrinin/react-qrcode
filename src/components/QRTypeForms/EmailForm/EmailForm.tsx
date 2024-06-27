@@ -13,10 +13,13 @@ function EmailForm({ setValue }: Props) {
 
   useEffect(() => {
     // Aca construimos el formato del correo
+    const email = `MATMSG:TO:${recipient};SUB:${subject};BODY:${body};;`;
+    setValue(email);
   }, [subject, recipient, body]);
+
   return (
     <div className="email-form">
-      <div className="email-input">
+      <div className="form-input">
         <label htmlFor="recipient">Recipient</label>
         <input
           placeholder="example@site.com"
@@ -27,7 +30,7 @@ function EmailForm({ setValue }: Props) {
         />
       </div>
 
-      <div className="email-input">
+      <div className="form-input">
         <label htmlFor="subject">Subject</label>
         <input
           placeholder="The email subject"
@@ -46,7 +49,6 @@ function EmailForm({ setValue }: Props) {
           onChange={(e) => setBody(e.target.value)}
         />
       </div>
-
     </div>
   );
 }
