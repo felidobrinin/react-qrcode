@@ -42,10 +42,11 @@ function EmailForm({ setValue }: Props) {
       </div>
 
       <div className="email-textarea">
-        <label htmlFor="body">Body</label>
+        <label htmlFor="email-body">Body</label>
         <textarea
           placeholder="Your email body here"
           value={body}
+          id="email-body"
           onChange={(e) => setBody(e.target.value)}
         />
       </div>
