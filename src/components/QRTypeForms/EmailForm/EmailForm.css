@@ -10,23 +10,26 @@
 }
 
 .email-textarea {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 
-  height: 100%;
+  /* height: max-content; */
   outline: var(--thick-border) solid transparent;
-  font-size: larger;
+
+  font-size: large;
   border-radius: var(--radius);
   transition: all 100ms linear;
   & > * {
     margin: 0;
   }
   & label {
+    font-size: large;
     border: var(--border-thickness) solid var(--border-color);
     border-bottom: none;
     padding: 0.5rem;
     display: block;
-
+    background-color: var(--bg);
     border-radius: var(--radius) var(--radius) 0 0;
 
     transition: all 100ms linear;
@@ -45,7 +48,7 @@
     outline-offset: 2px;
 
     & label {
-      background-color: var(--accent-light);
+      /* background-color: var(--accent-light); */
       font-weight: bold;
       color: var(--color);
     }

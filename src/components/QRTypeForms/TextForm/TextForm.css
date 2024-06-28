@@ -1,5 +1,5 @@
 .text-form {
-  font-size: larger;
+  font-size: large;
 
   & textarea {
     height: 100%;
