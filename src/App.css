@@ -179,7 +179,7 @@ textarea {
   & label {
     font-size: larger;
     border-right: var(--border-thickness) solid var(--border-color);
-    background-color: var(--bg);
+    background-color: var(--label-bg);
   }
 
   & input {

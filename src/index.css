@@ -19,7 +19,7 @@
 
   --accent: #5393dd;
   --accent-light: #cee5ff;
-
+  --label-bg: var(--bg);
   --radius: 6px;
   --border-thickness: 2px;
   --thick-border: 3px;
