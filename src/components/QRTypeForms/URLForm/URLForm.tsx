@@ -21,12 +21,12 @@ function URLForm({ setValue }: Props) {
   return (
     <div className="url-form">
       <div className="form-input">
-        <label htmlFor="url">https://</label>
+        <label htmlFor="url-input">https://</label>
         <input
           placeholder="wikipedia.com"
           type="text"
           value={text}
-          id="url"
+          id="url-input"
           onChange={(e) => handleChange(e.target.value)}
         />
       </div>
