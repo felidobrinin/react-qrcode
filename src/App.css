@@ -9,7 +9,7 @@
   margin: auto;
   margin-top: 1rem;
 
-  background-color: rgb(255, 255, 255);
+  background-color: var(--fg);
   color: var(--color);
 
   padding: 1.5rem;
@@ -54,6 +54,9 @@ header {
 }
 
 .qrcode-logo {
+  background-color: white;
+  border-radius: var(--radius);
+  /* outline: 1px solid var(--border-color); */
   height: 6rem;
 
   @media (width <= 600px) {
@@ -155,23 +158,29 @@ textarea {
 .form-input {
   display: grid;
   grid-template-columns: 20% auto;
+  align-items: center;
 
-  border-radius: var(--radius);
+  overflow: hidden;
+  /* font-size: larger; */
 
   border: var(--border-thickness) solid var(--border-color);
+  border-radius: var(--radius);
   outline: var(--thick-border) solid transparent;
-  transition: all 100ms linear;
 
+  
+  transition: all 100ms linear;
   & > * {
     padding: 0.5rem;
   }
   & label {
+    font-size: larger;
     border-right: var(--border-thickness) solid var(--border-color);
+    background-color: var(--bg);
   }
 
   & input {
     border: none;
-    font-size: large;
+    font-size: larger;
     width: 100%;
     border: none;
     outline: none;
@@ -182,7 +191,8 @@ textarea {
     outline-offset: 2px;
 
     & label {
-      background-color: var(--accent-light);
+      /* background-color: var(--accent-light); */
+      /* background-color: var(--bg); */
       font-weight: bold;
       color: var(--color);
     }
@@ -233,4 +243,9 @@ select {
   & option {
     padding: 0.5rem;
   }
+}
+
+input, textarea{
+  background-color: var(--fg);
+  font-family: inherit;
 }
