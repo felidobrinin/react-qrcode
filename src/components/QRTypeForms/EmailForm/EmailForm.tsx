@@ -41,7 +41,7 @@ function EmailForm({ setValue }: Props) {
         />
       </div>
 
-      <div className="email-textarea">
+      <div className="form-textarea">
         <label htmlFor="email-body">Body</label>
         <textarea
           placeholder="Your email body here"
