@@ -62,6 +62,7 @@ header {
 
   @media (width <= 600px) {
     height: 4rem;
+    border-radius: 2px;
   }
 
   @media (width <= 500px) {
@@ -83,7 +84,7 @@ main {
   grid-template-columns: 3fr 1fr;
   gap: 2rem;
 
-  @media (width <= 800px) {
+  @media (width <= 930px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
 
@@ -105,6 +106,12 @@ main {
   & canvas {
     margin: auto;
     border-radius: var(--radius);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    & canvas{
+      outline: 2px solid var(--border-color);
+    }
   }
 }
 
@@ -159,30 +166,40 @@ textarea {
   }
 }
 
+label {
+  user-select: none;
+}
+
+checkbox {
+  accent-color: var(--accent);
+  background-color: var(--fg);
+}
+
 .form-input {
   display: grid;
   grid-template-columns: 20% auto;
   align-items: center;
 
   overflow: hidden;
-  /* font-size: larger; */
 
   border: var(--border-thickness) solid var(--border-color);
   border-radius: var(--radius);
   outline: var(--thick-border) solid transparent;
 
-  
   transition: all 100ms linear;
   & > * {
     padding: 0.5rem;
   }
   & label {
+    display: grid;
+    align-items: center;
+    height: 100%;
     font-size: larger;
     border-right: var(--border-thickness) solid var(--border-color);
     background-color: var(--label-bg);
   }
 
-  & input {
+  & input, select {
     border: none;
     font-size: larger;
     width: 100%;
@@ -195,22 +212,84 @@ textarea {
     outline-offset: 2px;
 
     & label {
+      font-weight: bold;
+      color: var(--color);
+    }
+  }
+
+
+  @media (width <= 700px) {
+    display: flex;
+    flex-direction: column;
+
+    outline: var(--thick-border) solid transparent;
+
+    & label {
+      font-size: 1rem;
+      border: none;
+      border-bottom: none;
+      display: block;
+      background-color: var(--label-bg);
+      border-radius: var(--radius) var(--radius) 0 0;
+      width: 100%;
+
+    }
+  }
+}
+
+
+.form-textarea {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  /* height: max-content; */
+  outline: var(--thick-border) solid transparent;
+
+  font-size: large;
+  border-radius: var(--radius);
+  transition: all 100ms linear;
+  & > * {
+    margin: 0;
+  }
+  & label {
+    font-size: large;
+    border: var(--border-thickness) solid var(--border-color);
+    border-bottom: none;
+    padding: 0.5rem;
+    display: block;
+    background-color: var(--label-bg);
+    border-radius: var(--radius) var(--radius) 0 0;
+
+    transition: all 100ms linear;
+  }
+
+  & textarea {
+    border-radius: 0 0 var(--radius) var(--radius);
+    height: 100%;
+    outline: none;
+
+  }
+
+  
+  &:focus-within {
+    outline-color: var(--accent-light);
+    outline-offset: 2px;
+
+    & label {
       /* background-color: var(--accent-light); */
-      /* background-color: var(--bg); */
       font-weight: bold;
       color: var(--color);
     }
   }
 }
 
-.form-checkbox {
+.form-checkbox{
   display: grid;
   grid-template-columns: 20% auto;
   align-items: center;
-  position: relative;
 
-  border-radius: var(--radius);
-  outline: var(--thick-border) solid transparent;
+  outline: none;
   
   transition: all 100ms linear;
   & > * {
@@ -218,23 +297,35 @@ textarea {
   }
 
   & label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 100ms linear;
+    outline: var(--thick-border) solid transparent;
     border: var(--border-thickness) solid var(--border-color);
-    border-top-left-radius: var(--radius);
-    border-bottom-left-radius: var(--radius);
-    border-right: var(--border-thickness) solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: larger;
+    background-color: var(--label-bg);
+
+    & input {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 
-  & input {
-    margin-right: auto;
-    width: 2rem;
-    height: 2rem;
-    justify-self: end;
-    accent-color: var(--accent);
-
-    &:focus{
+  &:focus-within {
+    & label {
       outline-color: var(--accent-light);
-      outline-offset: 2px;      
+      outline-offset: 2px;
+      font-weight: bold;
+      color: var(--color);
+      
     }
+  }
+
+  @media (width <= 700px) {
+    grid-template-columns: 100% auto;
+    
   }
 }
 
