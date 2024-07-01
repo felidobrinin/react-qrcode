@@ -10,11 +10,13 @@ import WifiForm from "./components/QRTypeForms/WifiForm/WifiForm";
 
 import qrCodeLogo from "@/assets/qr-code.svg";
 import { QRCodeCanvas } from "qrcode.react";
+// import reloadSVG from "@/assets/reload.svg";
 
 import "./App.css";
 
 function App() {
   const [qrType, setQRType] = useState(QRType.Text);
+  const [QRTargetValue, setQRTargetValue] = useState("");
   const [QRValue, setQRValue] = useState("");
 
   const [resolution, _setResolution] = useState(1024);
@@ -22,20 +24,20 @@ function App() {
   const [imageURL, setImageURL] = useState("/");
 
   function changeQRType(type: QRType) {
-    if (type !== qrType) setQRValue("");
+    if (type !== qrType) setQRTargetValue("");
     setQRType(type);
   }
 
   function getQRTypeForm() {
     switch (qrType) {
       case QRType.Text:
-        return <TextForm value={QRValue} setValue={setQRValue} />;
+        return <TextForm value={QRTargetValue} setValue={setQRTargetValue} />;
       case QRType.URL:
-        return <URLForm setValue={setQRValue} />;
+        return <URLForm setValue={setQRTargetValue} />;
       case QRType.Email:
-        return <EmailForm setValue={setQRValue} />;
+        return <EmailForm setValue={setQRTargetValue} />;
       case QRType.WiFi:
-        return <WifiForm setValue={setQRValue} />;
+        return <WifiForm setValue={setQRTargetValue} />;
       default:
         return <div>I messed up</div>;
     }
@@ -77,12 +79,29 @@ function App() {
           {getQRTypeForm()}
           <div ref={qrWidthRef} className="qrcode-container">
             <QRCodeCanvas value={QRValue} size={calQRCodeSize()} />
-            <a
-              href={imageURL}
-              download="qrcode.png"
-              className="download-button"
+            <button
+              className="button reload-button"
+              onClick={() => {
+                // quitar
+                // document.getElementsByClassName("realod-icon").class
+                setQRValue(QRTargetValue);
+              }}
             >
+              Generate
+              <img
+                src="/src/assets/reload-light.svg"
+                alt=""
+                className="realod-icon"
+              />
+            </button>
+
+            <a href={imageURL} download="qrcode.png" className="button">
               Download
+              <img
+                src="/src/assets/download-light.svg"
+                alt=""
+                className="download-icon"
+              />
             </a>
           </div>
         </div>
