@@ -56,7 +56,7 @@ header {
 .qrcode-logo {
   background-color: white;
   /* border-radius: var(--radius); */
-  
+
   border-radius: var(--radius);
   height: 6rem;
 
@@ -88,11 +88,11 @@ main {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
 
-    &:has(.text-form){
+    &:has(.text-form) {
       grid-template-rows: 1fr 2fr;
     }
 
-    &:has(.email-form){
+    &:has(.email-form) {
       grid-template-rows: 3fr 2fr;
     }
   }
@@ -109,7 +109,7 @@ main {
   }
 
   @media (prefers-color-scheme: dark) {
-    & canvas{
+    & canvas {
       outline: 2px solid var(--border-color);
     }
   }
@@ -121,13 +121,23 @@ main {
   z-index: -30;
 }
 
-.download-button {
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: relative; */
+
+  gap: 0.5rem;
+  font-size: larger;
   padding: 1rem;
+
   border-radius: var(--radius);
+  background-color: transparent;
 
   text-decoration: none;
   text-align: center;
   font-weight: bold;
+
   color: var(--color);
 
   outline: 2px solid transparent;
@@ -140,13 +150,54 @@ main {
     outline: var(--thick-border) solid var(--accent-light);
     outline-offset: 2px;
     scale: 1.02;
+    cursor: pointer;
   }
 
   &:active {
     border-color: var(--accent);
     background-color: var(--accent-light);
-    /* outline-color: transparent; */
     scale: 1;
+  }
+
+
+}
+
+.realod-icon {
+  height: 2rem;
+  content: url("/src/assets/reload-light.svg");
+  
+  rotate: 0deg;
+
+  & .animate-rotation {
+    animation: rotate-icon 400ms linear;
+  }
+  @media (prefers-color-scheme: dark) {
+    content: url("/src/assets/reload-dark.svg");
+  }
+}
+
+
+.reload-button:active{
+  & .realod-icon{
+    rotate: 360deg;
+  }
+}
+
+@keyframes rotate-icon {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+  
+}
+.download-icon {
+  height: 2rem;
+  content: url("/src/assets/download-light.svg");
+
+  @media (prefers-color-scheme: dark) {
+    content: url("/src/assets/download-dark.svg");
   }
 }
 
@@ -199,7 +250,8 @@ checkbox {
     background-color: var(--label-bg);
   }
 
-  & input, select {
+  & input,
+  select {
     border: none;
     font-size: larger;
     width: 100%;
@@ -217,7 +269,6 @@ checkbox {
     }
   }
 
-
   @media (width <= 700px) {
     display: flex;
     flex-direction: column;
@@ -232,11 +283,9 @@ checkbox {
       background-color: var(--label-bg);
       border-radius: var(--radius) var(--radius) 0 0;
       width: 100%;
-
     }
   }
 }
-
 
 .form-textarea {
   flex-grow: 1;
@@ -268,10 +317,8 @@ checkbox {
     border-radius: 0 0 var(--radius) var(--radius);
     height: 100%;
     outline: none;
-
   }
 
-  
   &:focus-within {
     outline-color: var(--accent-light);
     outline-offset: 2px;
@@ -284,13 +331,13 @@ checkbox {
   }
 }
 
-.form-checkbox{
+.form-checkbox {
   display: grid;
   grid-template-columns: 20% auto;
   align-items: center;
 
   outline: none;
-  
+
   transition: all 100ms linear;
   & > * {
     padding: 0.5rem;
@@ -319,16 +366,13 @@ checkbox {
       outline-offset: 2px;
       font-weight: bold;
       color: var(--color);
-      
     }
   }
 
   @media (width <= 700px) {
     grid-template-columns: 100% auto;
-    
   }
 }
-
 
 select {
   background-color: transparent;
@@ -340,7 +384,8 @@ select {
   }
 }
 
-input, textarea{
+input,
+textarea {
   background-color: var(--fg);
   font-family: inherit;
 }
