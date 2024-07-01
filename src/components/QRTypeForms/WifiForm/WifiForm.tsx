@@ -54,13 +54,16 @@ function WifiForm({ setValue }: Props) {
 
       {/* Deberia hacer un componente custom la verdad */}
       <div className="form-checkbox">
-        <label htmlFor="hidden">Hidden</label>
+        <label htmlFor="hidden">Hidden
         <input
-          type="checkbox"
-          checked={hidden}
-          onChange={() => setHidden(!hidden)}
-          id="hidden"
-        />
+            type="checkbox"
+            checked={hidden}
+            onChange={() => setHidden(!hidden)}
+            id="hidden"
+          />
+        </label>
+        <div className="">
+        </div>
       </div>
     </div>
   );
