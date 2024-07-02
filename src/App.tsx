@@ -78,12 +78,14 @@ function App() {
         <div className="qr-form">
           {getQRTypeForm()}
           <div ref={qrWidthRef} className="qrcode-container">
-            <QRCodeCanvas value={QRValue} size={calQRCodeSize()} />
+            <QRCodeCanvas
+              value={QRValue}
+              size={calQRCodeSize()}
+              // includeMargin={true}
+            />
             <button
               className="button reload-button"
               onClick={() => {
-                // quitar
-                // document.getElementsByClassName("realod-icon").class
                 setQRValue(QRTargetValue);
               }}
             >
@@ -113,6 +115,7 @@ function App() {
         size={resolution}
         id="qrCanvas"
         className="hidden-canvas"
+        includeMargin={true}
       />
     </div>
   );

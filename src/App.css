@@ -106,13 +106,11 @@ main {
   & canvas {
     margin: auto;
     border-radius: var(--radius);
+    border: 2px solid var(--border-color);
+    padding: 1rem;
+    background-color: white;
   }
 
-  @media (prefers-color-scheme: dark) {
-    & canvas {
-      outline: 2px solid var(--border-color);
-    }
-  }
 }
 
 .hidden-canvas {
@@ -142,21 +140,22 @@ main {
 
   outline: 2px solid transparent;
   border: 2px solid var(--border-color);
-
+  scale: 1;
   transition: all 100ms linear;
 
   &:focus,
   &:hover {
     outline: var(--thick-border) solid var(--accent-light);
     outline-offset: 2px;
-    scale: 1.02;
+    /* scale: 1.02; */
+    border-color: var(--accent);
     cursor: pointer;
   }
 
   &:active {
     border-color: var(--accent);
     background-color: var(--accent-light);
-    scale: 1;
+    scale: 0.95;
   }
 
 
@@ -165,33 +164,12 @@ main {
 .realod-icon {
   height: 2rem;
   content: url("/src/assets/reload-light.svg");
-  
-  rotate: 0deg;
 
-  & .animate-rotation {
-    animation: rotate-icon 400ms linear;
-  }
   @media (prefers-color-scheme: dark) {
     content: url("/src/assets/reload-dark.svg");
   }
 }
 
-
-.reload-button:active{
-  & .realod-icon{
-    rotate: 360deg;
-  }
-}
-
-@keyframes rotate-icon {
-  from {
-    rotate: 0deg;
-  }
-  to {
-    rotate: 360deg;
-  }
-  
-}
 .download-icon {
   height: 2rem;
   content: url("/src/assets/download-light.svg");

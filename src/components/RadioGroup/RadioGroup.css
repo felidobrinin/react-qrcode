@@ -11,10 +11,11 @@
 .radio-item {
   border: var(--border-thickness) solid var(--border-color);
   border-radius: var(--radius);
-  transition: all 100ms linear;
   outline: var(--thick-border) solid transparent;
-
+  
+  transition: all 100ms linear;
   display: grid;
+
   & > * {
     grid-area: 1/1;
   }
@@ -29,6 +30,8 @@
 
     color: var(--color-light);
     font-weight: normal;
+
+    transition: all 100ms linear;
     z-index: 10;
     &:hover {
       cursor: pointer;
@@ -60,6 +63,7 @@
   &:has(input:focus, :hover) {
     outline: var(--thick-border) solid var(--accent-light);
     outline-offset: 2px;
+    border-color: var(--accent);
   }
 
   /* Mientras tenga 4 elementos esto sirve */
