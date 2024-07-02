@@ -14,7 +14,7 @@ function WifiForm({ setValue }: Props) {
 
   useEffect(() => {
     // Aca construimos el formato del correo
-    const wifi = `WIFI:T:${auth};S:${name};P:${password};;`;
+    const wifi = `WIFI:T:${auth};S:${name};P:${password};${ hidden? "H:true" : "" };`;
     setValue(wifi);
   }, [auth, name, password, hidden]);
 
