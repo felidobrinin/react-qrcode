@@ -201,7 +201,7 @@ label {
 
 checkbox {
   accent-color: var(--accent);
-  background-color: var(--fg);
+  background-color: var(--input-bg);
 }
 
 .form-input {
@@ -353,7 +353,6 @@ checkbox {
 }
 
 select {
-  background-color: transparent;
   border: none;
   outline: none;
 
@@ -363,7 +362,9 @@ select {
 }
 
 input,
-textarea {
-  background-color: var(--fg);
+textarea,
+select {
+  background-color: var(--input-bg);
   font-family: inherit;
 }
+

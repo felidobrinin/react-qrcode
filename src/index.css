@@ -19,7 +19,10 @@
 
   --accent: #5393dd;
   --accent-light: #cee5ff;
+
   --label-bg: var(--bg);
+  --input-bg: var(--fg);
+  
   --radius: 6px;
   --border-thickness: 2px;
   --thick-border: 3px;
@@ -27,8 +30,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1b1b1b;
-    --fg: #272727;
+    --bg: rgb(27, 27, 27);
+    --fg: rgb(39, 39, 39);
     --border-color: rgb(71, 71, 71);
     
     --color: #f6f6f6;
@@ -36,6 +39,9 @@
     
     --accent: #76adeb;
     --accent-light: rgb(56, 65, 75);
+
+    --input-bg: var(--bg);
+    --label-bg : rgb(33, 33, 33);
   }
 }
 
