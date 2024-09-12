@@ -12,8 +12,8 @@ function URLForm({ setValue }: Props) {
     let url = text;
     setText(url);
 
-    if (!url.startsWith("http://") || !url.startsWith("http://"))
-      url = `https://${url}`;
+//    if (!url.startsWith("http://") || !url.startsWith("https://"))
+      // url = `https://${url}`;
 
     setValue(url);
   }
@@ -21,7 +21,7 @@ function URLForm({ setValue }: Props) {
   return (
     <div className="url-form">
       <div className="form-input">
-        <label htmlFor="url-input">https://</label>
+        <label htmlFor="url-input">url:</label>
         <input
           placeholder="wikipedia.com"
           type="text"
