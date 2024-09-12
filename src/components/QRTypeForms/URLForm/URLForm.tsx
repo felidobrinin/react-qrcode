@@ -23,7 +23,7 @@ function URLForm({ setValue }: Props) {
       <div className="form-input">
         <label htmlFor="url-input">url:</label>
         <input
-          placeholder="wikipedia.com"
+          placeholder="http://wikipedia.com"
           type="text"
           value={text}
           id="url-input"
